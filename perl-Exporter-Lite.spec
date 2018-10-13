@@ -4,24 +4,25 @@
 #
 Name     : perl-Exporter-Lite
 Version  : 0.08
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz
 Summary  : unknown
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-Exporter-Lite-man
+BuildRequires : buildreq-cpan
 
 %description
 This module is a lightweight version of the core Exporter module,
 providing a subset of that module's functionality.
 
-%package man
-Summary: man components for the perl-Exporter-Lite package.
-Group: Default
+%package dev
+Summary: dev components for the perl-Exporter-Lite package.
+Group: Development
+Provides: perl-Exporter-Lite-devel = %{version}-%{release}
 
-%description man
-man components for the perl-Exporter-Lite package.
+%description dev
+dev components for the perl-Exporter-Lite package.
 
 
 %prep
@@ -50,9 +51,9 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -61,8 +62,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Exporter/Lite.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Exporter/Lite.pm
 
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Exporter::Lite.3

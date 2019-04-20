@@ -4,10 +4,10 @@
 #
 Name     : perl-Exporter-Lite
 Version  : 0.08
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz
-Summary  : unknown
+Summary  : lightweight exporting of functions and variables
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
 BuildRequires : buildreq-cpan
@@ -20,6 +20,7 @@ providing a subset of that module's functionality.
 Summary: dev components for the perl-Exporter-Lite package.
 Group: Development
 Provides: perl-Exporter-Lite-devel = %{version}-%{release}
+Requires: perl-Exporter-Lite = %{version}-%{release}
 
 %description dev
 dev components for the perl-Exporter-Lite package.

@@ -4,7 +4,7 @@
 #
 Name     : perl-Exporter-Lite
 Version  : 0.08
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz
 Summary  : lightweight exporting of functions and variables

@@ -4,12 +4,13 @@
 #
 Name     : perl-Exporter-Lite
 Version  : 0.08
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz
-Summary  : lightweight exporting of functions and variables
+Summary  : unknown
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
+Requires: perl-Exporter-Lite-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -26,14 +27,24 @@ Requires: perl-Exporter-Lite = %{version}-%{release}
 dev components for the perl-Exporter-Lite package.
 
 
+%package perl
+Summary: perl components for the perl-Exporter-Lite package.
+Group: Default
+Requires: perl-Exporter-Lite = %{version}-%{release}
+
+%description perl
+perl components for the perl-Exporter-Lite package.
+
+
 %prep
 %setup -q -n Exporter-Lite-0.08
+cd %{_builddir}/Exporter-Lite-0.08
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -43,7 +54,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -63,8 +74,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Exporter/Lite.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Exporter::Lite.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Exporter/Lite.pm

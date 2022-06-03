@@ -4,7 +4,7 @@
 #
 Name     : perl-Exporter-Lite
 Version  : 0.09
-Release  : 23
+Release  : 24
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.09.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.09.tar.gz
 Summary  : unknown
@@ -81,4 +81,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Exporter/Lite.pm
+/usr/lib/perl5/*

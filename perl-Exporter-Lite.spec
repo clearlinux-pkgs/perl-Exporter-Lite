@@ -4,7 +4,7 @@
 #
 Name     : perl-Exporter-Lite
 Version  : 0.09
-Release  : 24
+Release  : 25
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.09.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.09.tar.gz
 Summary  : unknown
